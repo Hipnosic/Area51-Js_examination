@@ -19,7 +19,7 @@ function App() {
       setPlanets(data.results)
     }
 
-    fetchPeople();
+    fetchPeople(); //tjenare, hur mår du
     fetchPlanets();
 
   }, [])

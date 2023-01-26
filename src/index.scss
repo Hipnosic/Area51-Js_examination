@@ -17,12 +17,13 @@ code {
 
 .navbar {
   button {
-    background-color: transparent;
-    border-color: red;
+    background-color: black;
+    color: yellow;
+    border-color:yellow;
     border-radius: 1rem;
     &:hover {
-      background-color: red;
-      color: white;
+      background-color: yellow;
+      color: black;
     }
   }
 }

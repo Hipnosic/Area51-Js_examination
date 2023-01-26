@@ -2,6 +2,11 @@ import React, { useState, useEffect } from "react";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Films from "./views/Films/Films";
+import Planets from "./views/Planets/Planets";
+import Species from "./views/Species/Species";
+import Starships from "./views/Starships/Starships";
+import Vehicles from "./views/Vehicles/Vehicles";
+import People from "./views/People/People";
 
 function App() {
   const [data, setData] = useState([])
@@ -38,6 +43,21 @@ function App() {
       </div>
       {currentType === "films" && !loading && (
         <Films data={data} />
+      )}
+      {currentType === "planets" && !loading && (
+        <Planets data={data} />
+      )}
+      {currentType === "species" && !loading && (
+        <Species data={data} />
+      )}
+      {currentType === "starships" && !loading && (
+        <Starships data={data} />
+      )}
+      {currentType === "vehicles" && !loading && (
+        <Vehicles data={data} />
+      )}
+      {currentType === "people" && !loading && (
+        <People data={data} />
       )}
       {loading && (<p>Hämtar data..</p>)}
     </div>

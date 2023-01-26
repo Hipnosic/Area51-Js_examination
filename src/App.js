@@ -1,70 +1,45 @@
 import React, { useState, useEffect } from "react";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-import { fetchPeople, fetchPlanets, fetchFilms, fetchStarships, fetchVehicles, fetchSpecies, } from './dataHandler'
+import Films from "./views/Films/Films";
 
 function App() {
-  const [people, setPeople] = useState([]);
-  const [planets, setPlanets] = useState([]);
-  const [films, setFilms] = useState([]);
-  const [starships, setStarships] = useState([]);
-  const [vehicles, setVehicles] = useState([]);
-  const [species, setSpecies] = useState([]);
+  const [data, setData] = useState([])
+  const [loading, setLoading] = useState(true);
+  const [currentType, setCurrentType] = useState("films");
   
+  async function getData() {
+    setLoading(true);
+    const response = await fetch(`https://swapi.dev/api/${currentType}/?format=json`)
+    if (!response.ok) throw new Error(response.status)
+    const data = await response.json();
+    setData(data);
+    console.log(data);
+    setLoading(false);
+  }
+
+  const onTypeSelectHandler = (e) => {
+    setCurrentType(e.target.name);
+  }
 
   useEffect(() => {
-    async function fetchPeople() {
-      let res = await fetch('https://swapi.dev/api/people/?format=json');
-      let data = await res.json();
-      setPeople(data.results)
-  }
-  
-  async function fetchPlanets() {
-      let res = await fetch('https://swapi.dev/api/planets/?format=json');
-      let data = await res.json();
-      setPlanets(data.results)
-  }
-  
-  async function fetchFilms() {
-      let res = await fetch('https://swapi.dev/api/films/?format=json');
-      let data = await res.json();
-      setFilms(data.results)
-  }
-  
-  async function fetchSpecies() {
-      let res = await fetch('https://swapi.dev/api/species/?format=json');
-      let data = await res.json();
-      setSpecies(data.results)
-  }
-  
-  async function fetchStarships() {
-      let res = await fetch('https://swapi.dev/api/starships/?format=json');
-      let data = await res.json();
-      setStarships(data.results)
-  }
-  
-  async function fetchVehicles() {
-      let res = await fetch('https://swapi.dev/api/vehicles/?format=json');
-      let data = await res.json();
-      setVehicles(data.results)
-  }
-    fetchPeople(); 
-    fetchPlanets();
-    fetchFilms(); 
-    fetchSpecies();
-    fetchStarships(); 
-    fetchVehicles();
-
-  }, [])
-  console.log('people', people);
-  console.log('planets', planets);
-  console.log('Films', films);
-  console.log('Species', species);
-  console.log('Starships', starships);
-  console.log('Vehicles', vehicles);
+    getData();
+  }, [currentType])
 
   return (
     <div className="container">
+      <div className="navbar">
+        <button name="films" onClick={onTypeSelectHandler}>Films</button>
+        <button name="planets" onClick={onTypeSelectHandler}>Planets</button>
+        <button name="species" onClick={onTypeSelectHandler}>Species</button>
+        <button name="starships" onClick={onTypeSelectHandler}>Starships</button>
+        <button name="vehicles" onClick={onTypeSelectHandler}>Vehicles</button>
+        <button name="people" onClick={onTypeSelectHandler}>People</button>
+      </div>
+      {currentType === "films" && !loading && (
+        <Films data={data} />
+      )}
+      {loading && (<p>Hämtar data..</p>)}
     </div>
   );
 }

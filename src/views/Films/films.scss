@@ -1,7 +1,19 @@
 .films-container {
-    background-color: lightgrey;
+    height: 50em;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: space-around;
+    gap: 80px;
 }
 
 .film {
-    border: 1px solid green;
+    background-color: black;
+    color: white;
+    border: 2px solid yellow;
+    border-radius: 20px;
+    height: 20em;
+    text-align: center;
+    padding-top: 1em;
 }

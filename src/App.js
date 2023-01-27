@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import Header from "./components/Header/Header";
-import Footer from "./components/Footer/Footer";
+// import Header from "./components/Header/Header";
+// import Footer from "./components/Footer/Footer";
 import Films from "./views/Films/Films";
 import Planets from "./views/Planets/Planets";
 import Species from "./views/Species/Species";
@@ -34,7 +34,7 @@ function App() {
   return (
     
     <div className="container">
-      <div className="image-conteiner">
+      <div className="image-container">
         <div className="image"></div>
       </div>
       <div className="navbar">

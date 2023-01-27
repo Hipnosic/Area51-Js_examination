@@ -8,6 +8,12 @@ body {
   background-image: url("./assets/starwars.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+
+
+  @font-face {
+    font-family: starwars;
+    src: url('../src/assets/fonts/starjedi/Starjedi.ttf');
+  }
 }
 
 code {
@@ -15,15 +21,37 @@ code {
     monospace;
 }
 
+.container {
+  border: dotted white;
+  
+}
+
 .navbar {
+  border: solid 2px rgb(80, 80, 80);
+  background-color: rgb(107, 107, 107);
+  margin-top: 30rem;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  padding-left: .9em;
+  padding-right: .9em;
+  
   button {
     background-color: black;
     color: yellow;
     border-color:yellow;
-    border-radius: 1rem;
+    border-radius: 20px;
+    width: 110px;
+	  height: 40px;
+    padding: .4em;
+    padding-left: 1.2em;
+    padding-right: 1.2em;
     &:hover {
       background-color: yellow;
       color: black;
+      font-weight: 800;
+      box-shadow: 3px 8px 10px #2e2e2e;
+      transform: translateY(-3px);
+	    transition: all 0.3s ease 0s;
     }
   }
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import "./planets.scss";
 
-const Films = ({data}) => {
+const Planets = ({data}) => {
     console.log(data);
     return (
         <div className="planet-container">
@@ -17,4 +17,4 @@ const Films = ({data}) => {
     )
 } 
 
-export default Films;
+export default Planets;

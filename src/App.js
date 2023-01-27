@@ -32,7 +32,11 @@ function App() {
   }, [currentType])
 
   return (
+    
     <div className="container">
+      <div className="image-conteiner">
+        <div className="image"></div>
+      </div>
       <div className="navbar">
         <button name="films" onClick={onTypeSelectHandler}>Films</button>
         <button name="planets" onClick={onTypeSelectHandler}>Planets</button>

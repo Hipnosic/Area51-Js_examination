@@ -5,9 +5,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url("./assets/starwars.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
+  
+  // background-image: url("./assets/starwars.jpg");
+  // background-repeat: no-repeat;
+  // background-size: cover;
 
 
   @font-face {
@@ -16,20 +17,34 @@ body {
   }
 }
 
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
 
+.image-conteiner {
+  background-image: url("./assets/starwars.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: dotted rgb(239, 250, 84);
+  padding: 10rem;
+  display: flex;
+  align-items: flex-end;
+}
+
 .container {
-  border: dotted white;
+  display: flex;
+  flex-direction: column;
+  border: dotted rgb(12, 12, 12);
+  
   
 }
 
 .navbar {
   border: solid 2px rgb(80, 80, 80);
   background-color: rgb(107, 107, 107);
-  margin-top: 30rem;
+  margin-top: 20rem;
   padding-top: 1em;
   padding-bottom: 1em;
   padding-left: .9em;

@@ -11,6 +11,7 @@ body {
   // background-repeat: no-repeat;
   // background-size: cover;
 
+
   @font-face {
     font-family: starwars;
     src: url('../src/assets/fonts/starjedi/Starjedi.ttf');
@@ -27,22 +28,30 @@ code {
   background-image: url("./assets/starwars.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  border: dotted rgb(239, 250, 84);
-  padding: 10rem;
+  border: solid 2px rgb(239, 250, 84);
+  padding: 15rem;
+  display: flex;
+  margin-top: .6rem;
+  
+  
+  
 }
 
 .container {
   display: flex;
   flex-direction: column;
-  border: dotted rgb(239, 250, 84);
+  border: solid 20px rgb(92, 92, 92);
+  background-color: rgb(61, 61, 61);
   
   
 }
 
 .navbar {
-  border: solid 2px rgb(80, 80, 80);
-  background-color: rgb(107, 107, 107);
-  margin-top: 2rem;
+  border: solid 3px yellow;
+  background-color: rgb(92, 92, 92);
+  margin-top: -2.5rem;
+  margin-left: 1.5em;
+  margin-right: 1.5em;
   padding-top: 1em;
   padding-bottom: 1em;
   padding-left: .9em;

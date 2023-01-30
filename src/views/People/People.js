@@ -3,13 +3,20 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import { Popover, OverlayTrigger, ButtonToolbar, Button } from "react-bootstrap";
 
+// function getHomeworld(world) {
+//     fetch(world)
+//     .then(res => {
+//        return res.json();
+//     })
+// }
+
 function getHomeworld(world) {
     fetch(world)
-    .then(res => {
-       return res.json();
+    .then(response => response.json())
+    .then(json => {
+        return json.name
     })
 }
-
 const People = ({data}) => {
     console.log(data);
     return (
@@ -34,7 +41,7 @@ const People = ({data}) => {
             return (
                 <ButtonToolbar>
                     <OverlayTrigger trigger="focus" placement="top" overlay={popoverRight}>
-                        <Button class="btn btn-transparent">
+                        <Button className="btn btn-transparent">
                             <div className="people-info">
                                 <div className="text-container">
                                     <p>Full Name: {people.name}</p>

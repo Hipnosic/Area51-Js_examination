@@ -71,10 +71,19 @@ code {
     &:hover {
       background-color: yellow;
       color: black;
-      font-weight: 800;
+      // font-weight: 800;
       box-shadow: 3px 8px 10px #2e2e2e;
       transform: translateY(-3px);
 	    transition: all 0.3s ease 0s;
+      text-shadow:
+      -1px -1px 0 yellow,
+      1px -1px 0 yellow,
+      -1px 1px 0 yellow,
+      1px 1px 0 yellow;
+      -webkit-transition: all .5s;
+      -moz-transition: all .5s;
+      -o-transition: all .5s;
+      transition: all .5s;
     }
   }
 }

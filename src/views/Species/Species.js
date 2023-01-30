@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import "./species.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
-import { Popover, OverlayTrigger, ButtonToolbar, Button, Modal } from "react-bootstrap";
+import { Popover, OverlayTrigger, ButtonToolbar, Button } from "react-bootstrap";
 
 const Species = ({data}) => {
     console.log(data);
@@ -20,7 +20,7 @@ const Species = ({data}) => {
             return (
                 <ButtonToolbar>
                     <OverlayTrigger trigger="focus" placement="top" overlay={popoverRight}>
-                        <Button class="btn btn-transparent">
+                        <Button className="btn btn-transparent">
                             <div className="species-info">
                                 <div className="text-container">
                                     <p>Species name: {species.name}</p>
@@ -34,7 +34,7 @@ const Species = ({data}) => {
         })}
         </div>
     )
-} 
+}
 
 export default Species;
 

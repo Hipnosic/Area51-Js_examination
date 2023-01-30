@@ -29,7 +29,7 @@ const Starships = ({data}) => {
             return (
                 <ButtonToolbar>
                     <OverlayTrigger trigger="focus" placement="top" overlay={popoverRight}>
-                        <Button class="btn btn-transparent">
+                        <Button className="btn btn-transparent">
                             <div className="starship-info">
                                 <div className="text-container">
                                     <p>Starship name: {starship.name}</p>

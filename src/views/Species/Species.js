@@ -34,7 +34,7 @@ const Species = ({data}) => {
         })}
         </div>
     )
-} 
+}
 
 export default Species;
 

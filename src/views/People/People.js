@@ -3,6 +3,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import { Popover, OverlayTrigger, ButtonToolbar, Button } from "react-bootstrap";
 
+// function getHomeworld(world) {
+//     fetch(world)
+//     .then(res => {
+//        return res.json();
+//     })
+// }
+
 function getHomeworld(world) {
     fetch(world)
     .then(response => response.json())
@@ -10,7 +17,6 @@ function getHomeworld(world) {
         return console.log(json.name)
     })
 }
-
 const People = ({data}) => {
     console.log(data);
     return (

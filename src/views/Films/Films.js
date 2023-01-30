@@ -1,4 +1,3 @@
-// import React, { useState } from 'react';
 import "./films.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
@@ -43,61 +42,3 @@ const FilmDesc = ({data}) => {
 } 
 
 export default FilmDesc;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const FilmDesc = ({data}) => {
-//     const [show, setShow] = useState(false)
-//     const handleClose = () => setShow(false);
-//     const handleShow = () => setShow(true);
-//     console.log(data);
-//     return (
-//         <div className="info-container">
-//         {data.results.map((film) => {
-//             return (
-//                 <>
-//                     <Button  variant="primary" onClick={handleShow}>
-//                         <div className="planet-info">
-//                             <div className="text-container">
-//                                 <p>Movie name: {film.title}</p>
-//                                 <p>Created: {film.release_date}</p>
-//                             </div>
-//                         </div>
-//                     </Button>
-//                     <Modal show={show} onHide={handleClose} scrollable={true}>
-//                         <Modal.Header closeButton>
-//                             <Modal.Title>{film.title}</Modal.Title>
-//                         </Modal.Header>
-//                         <Modal.Body>{film.release_date}</Modal.Body>
-//                         <Modal.Footer>
-//                             <Button variant="secondary" onClick={handleClose}>
-//                                 Close
-//                             </Button>
-//                             <Button variant="primary" onClick={handleClose}>
-//                                 Save Changes
-//                             </Button>
-//                         </Modal.Footer>
-//                     </Modal>
-//                 </>
-//             )
-//         })}
-//         </div>
-//     )
-// }

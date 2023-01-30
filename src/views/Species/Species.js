@@ -20,7 +20,7 @@ const Species = ({data}) => {
             return (
                 <ButtonToolbar>
                     <OverlayTrigger trigger="focus" placement="top" overlay={popoverRight}>
-                        <Button class="btn btn-transparent">
+                        <Button className="btn btn-transparent">
                             <div className="species-info">
                                 <div className="text-container">
                                     <p>Species name: {species.name}</p>

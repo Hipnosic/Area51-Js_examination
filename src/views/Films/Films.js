@@ -25,7 +25,7 @@ const FilmDesc = ({data}) => {
                 <>
                     <ButtonToolbar>
                         <OverlayTrigger trigger="focus" placement="top" overlay={popoverRight}>
-                            <Button class="btn btn-transparent">
+                            <Button className="btn btn-transparent">
                                 <div className="planet-info">
                                     <div className="text-container">
                                         <p>Movie name: {film.title}</p>

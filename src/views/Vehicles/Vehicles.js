@@ -27,7 +27,7 @@ const Vehicles = ({data}) => {
             return (
                 <ButtonToolbar>
                     <OverlayTrigger trigger="focus" placement="top" overlay={popoverRight}>
-                        <Button class="btn btn-transparent">
+                        <Button className="btn btn-transparent">
                             <div className="vehicles-info">
                                 <div className="text-container">
                                     <p>Vehicles name: {vehicles.name}</p>

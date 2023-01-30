@@ -6,7 +6,7 @@ import { Popover, OverlayTrigger, ButtonToolbar, Button } from "react-bootstrap"
 function getHomeworld(world) {
     fetch(world)
     .then(res => {
-       return res.json();
+        return res.json();
     })
 }
 
@@ -34,7 +34,7 @@ const People = ({data}) => {
             return (
                 <ButtonToolbar>
                     <OverlayTrigger trigger="focus" placement="top" overlay={popoverRight}>
-                        <Button class="btn btn-transparent">
+                        <Button className="btn btn-transparent">
                             <div className="people-info">
                                 <div className="text-container">
                                     <p>Full Name: {people.name}</p>

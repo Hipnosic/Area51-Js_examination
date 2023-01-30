@@ -26,6 +26,7 @@ code {
 
 .image-container {
   background-image: url("./assets/starwars.jpg");
+  z-index: 0;
   background-repeat: no-repeat;
   background-size: cover;
   border: solid 2px rgb(239, 250, 84);
@@ -35,6 +36,15 @@ code {
   
   
   
+}
+
+.image {
+  background-image: url("./assets/title.jpg");
+  z-index: 1;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 3em;
+  width: 3em;
 }
 
 .container {

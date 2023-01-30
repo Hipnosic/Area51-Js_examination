@@ -30,8 +30,8 @@ const People = ({data}) => {
                         <Button class="btn btn-transparent">
                             <div className="people-info">
                                 <div className="text-container">
-                                    <p>people name: {people.name}</p>
-                                    <p>Price: {people.homeworld}</p>
+                                    <p>Full Name: {people.name}</p>
+                                    <p>Homeworld: {people.homeworld}</p>
                                 </div>
                             </div>
                         </Button>

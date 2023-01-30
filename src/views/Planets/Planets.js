@@ -28,8 +28,8 @@ const Planets = ({data}) => {
                         <Button class="btn btn-transparent">
                             <div className="planet-info">
                                 <div className="text-container">
-                                    <p>Movie name: {planet.name}</p>
-                                    <p>Created: {planet.population}</p>
+                                    <p>Planet name: {planet.name}</p>
+                                    <p>Population: {planet.population}</p>
                                 </div>
                             </div>
                         </Button>

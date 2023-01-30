@@ -39,12 +39,13 @@ code {
 }
 
 .image {
-  background-image: url("./assets/title.jpg");
+  background-image: url("./assets/title.png");
   z-index: 1;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 3em;
-  width: 3em;
+  height: 6em;
+  width: 12em;
+  margin: 0 auto;
 }
 
 .container {

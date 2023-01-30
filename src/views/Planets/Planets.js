@@ -25,7 +25,7 @@ const Planets = ({data}) => {
             return (
                 <ButtonToolbar>
                     <OverlayTrigger trigger="focus" placement="top" overlay={popoverRight}>
-                        <Button>
+                        <Button class="btn btn-transparent">
                             <div className="planet-info">
                                 <div className="text-container">
                                     <p>Movie name: {planet.name}</p>

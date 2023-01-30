@@ -2,7 +2,7 @@
 import "./films.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
-import { Popover, OverlayTrigger, ButtonToolbar, Button, Modal } from "react-bootstrap";
+import { Popover, OverlayTrigger, ButtonToolbar, Button } from "react-bootstrap";
 
 const FilmDesc = ({data}) => {
     console.log(data);
@@ -13,11 +13,11 @@ const FilmDesc = ({data}) => {
                 <Popover id="popover" title="Popover right">
                     <p>{film.title}</p>
                     <ul>
-                        <li>Episode: {film.episode_id}</li>    
+                        <li >Episode: {film.episode_id}</li>    
                         <li>Created: {film.release_date}</li>
                         <li>Director: {film.director}</li>
                         <li>Producer: {film.producer}</li>
-                        <li class="opening">{film.opening_crawl}</li>
+                        <li className="opening">{film.opening_crawl}</li>
                     </ul>
                 </Popover>
             )

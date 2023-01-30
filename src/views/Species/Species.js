@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import "./species.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
-import { Popover, OverlayTrigger, ButtonToolbar, Button, Modal } from "react-bootstrap";
+import { Popover, OverlayTrigger, ButtonToolbar, Button } from "react-bootstrap";
 
 const Species = ({data}) => {
     console.log(data);

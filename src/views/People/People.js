@@ -5,8 +5,9 @@ import { Popover, OverlayTrigger, ButtonToolbar, Button } from "react-bootstrap"
 
 function getHomeworld(world) {
     fetch(world)
-    .then(res => {
-        return res.json();
+    .then(response => response.json())
+    .then(json => {
+        return console.log(json.name)
     })
 }
 
@@ -19,7 +20,7 @@ const People = ({data}) => {
                 <Popover id="popover" title="Popover right">
                     <p>{people.name}</p>
                     <ul>
-                        <li>Homeworld: {getHomeworld(people.homeworld)}</li>
+                        <li>Homeworld: {console.log(getHomeworld(people.homeworld))}</li>
                         <li>Species: {people.species}</li>
                         <li>Birth year: {people.birth_year}</li>
                         <li>Gender: {people.gender}</li>
@@ -34,7 +35,7 @@ const People = ({data}) => {
             return (
                 <ButtonToolbar>
                     <OverlayTrigger trigger="focus" placement="top" overlay={popoverRight}>
-                        <Button className="btn btn-transparent">
+                        <Button class="btn btn-transparent">
                             <div className="people-info">
                                 <div className="text-container">
                                     <p>Full Name: {people.name}</p>
@@ -51,3 +52,14 @@ const People = ({data}) => {
 } 
 
 export default People;
+
+
+// function getHomeworld(world) {
+//     fetch(world)
+//     .then(response => response.json())
+//     .then(json => {
+//         json.results.map((homeworld) => {
+//             return homeworld.name
+//         })
+//     })
+// }

@@ -29,7 +29,7 @@ const Planets = ({data}) => {
                             <div className="planet-info">
                                 <div className="text-container">
                                     <p>Planet name: {planet.name}</p>
-                                    <p>Population: {planet.population}</p>
+                                    <p>Population   : {planet.population}</p>
                                 </div>
                             </div>
                         </Button>

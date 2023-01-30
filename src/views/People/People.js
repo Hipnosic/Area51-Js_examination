@@ -3,6 +3,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import { Popover, OverlayTrigger, ButtonToolbar, Button } from "react-bootstrap";
 
+function getHomeworld(world) {
+    fetch(world)
+    .then(res => {
+       return res.json();
+    })
+}
+
 const People = ({data}) => {
     console.log(data);
     return (
@@ -12,7 +19,7 @@ const People = ({data}) => {
                 <Popover id="popover" title="Popover right">
                     <p>{people.name}</p>
                     <ul>
-                        <li>Homeworld: {people.homeworld}</li>
+                        <li>Homeworld: {getHomeworld(people.homeworld)}</li>
                         <li>Species: {people.species}</li>
                         <li>Birth year: {people.birth_year}</li>
                         <li>Gender: {people.gender}</li>

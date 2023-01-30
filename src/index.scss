@@ -35,18 +35,20 @@ code {
   margin-top: .6rem;
   
   
-  
 }
 
-.image {
+.title-png {
   background-image: url("./assets/title.png");
-  z-index: 1;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 6em;
-  width: 12em;
-  margin: 0 auto;
 }
+// .image {
+//   background-image: url("./assets/title.png");
+//   z-index: 1;
+//   background-repeat: no-repeat;
+//   background-size: cover;
+//   height: 6em;
+//   width: 12em;
+//   margin: 0 auto;
+// }
 
 .container {
   display: flex;

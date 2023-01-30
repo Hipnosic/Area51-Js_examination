@@ -7,6 +7,8 @@ import Species from "./views/Species/Species";
 import Starships from "./views/Starships/Starships";
 import Vehicles from "./views/Vehicles/Vehicles";
 import People from "./views/People/People";
+import Title from "./assets/title.png";
+
 
 function App() {
   const [data, setData] = useState([])
@@ -34,6 +36,11 @@ function App() {
   return (
     
     <div className="container">
+      <div className="clip-art">
+        <img className="title" src="" alt=""></img>
+        <img className="yoda" src="" alt=""></img>
+        <img className="robot" src="" alt=""></img>
+      </div>
       <div className="image-container">
         <div className="image"></div>
       </div>

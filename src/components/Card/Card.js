@@ -32,12 +32,10 @@ const Card = ({name, homeworld, species, gender, height, mass, hair_color, skin_
         <>
             {!loading && (
                 <>
-                        <ButtonToolbar>
+                        <ButtonToolbar className="card">
                             <Button className="btn bg-transparent border-0" onClick={handleShow}>
-                                <div className="people-info">
-                                    <div className="text-container">
-                                        <p>Full Name: {name}</p>
-                                    </div>
+                                <div className="text-container">
+                                    <p>{name}</p>
                                 </div>
                             </Button>
                         </ButtonToolbar>

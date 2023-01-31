@@ -1,0 +1,55 @@
+@font-face {
+    font-family: starwars;
+    src: url('../../assets/fonts/starjedi/Starjedi.ttf');
+}
+
+.card-container {
+    height: 30em;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: space-around;
+    
+    gap: 20px;
+}
+
+.card {
+    background-color: black;
+    color: black;
+    -webkit-text-stroke: 0.5px yellow;
+    font-family: starwars;
+    border: 2px solid yellow;
+    border-radius: 20px;
+    height: 10em;
+    width: 10em;
+    text-align: center;
+    padding-top: 1em;
+    .btn {
+        width: 100%;
+        height: 100%;
+    }
+    &:hover {
+        background-color: yellow;
+        // font-weight: 800;
+        box-shadow: 3px 8px 10px #2e2e2e;
+        transform: translateY(-3px);
+          transition: all 0.3s ease 0s;
+        text-shadow:
+        -1px -1px 0 yellow,
+        1px -1px 0 yellow,
+        -1px 1px 0 yellow,
+        1px 1px 0 yellow;
+        -webkit-transition: all .5s;
+        -moz-transition: all .5s;
+        -o-transition: all .5s;
+        transition: all .5s;
+        .text-container p {
+            color: black;
+        }
+      } 
+}
+
+.text-container {
+    width: 100%;
+}

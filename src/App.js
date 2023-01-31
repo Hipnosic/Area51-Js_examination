@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 // import Header from "./components/Header/Header";
 // import Footer from "./components/Footer/Footer";
-import Films from "./views/Films/Films";
-import Planets from "./views/Planets/Planets";
-import Species from "./views/Species/Species";
-import Starships from "./views/Starships/Starships";
-import Vehicles from "./views/Vehicles/Vehicles";
-import People from "./views/People/People";
+import Films from "./components/Categories/Films";
+import Planets from "./components/Categories/Planets";
+import Species from "./components/Categories/Species";
+import Starships from "./components/Categories/Starships";
+import Vehicles from "./components/Categories/Vehicles";
+import People from "./components/Categories/People";
 import Title from "./assets/title.png";
 
 

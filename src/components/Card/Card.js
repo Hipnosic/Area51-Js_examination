@@ -42,10 +42,10 @@ const Card = ({name, homeworld, species, gender, height, mass, hair_color, skin_
                 </Button>
         </ButtonToolbar>
         <Modal show={show} onHide={handleClose}>
-            <Modal.Header closeButton>
+            <Modal.Header className="modal-header">
                 <Modal.Title>{name}</Modal.Title>
             </Modal.Header>
-            <Modal.Body>
+            <Modal.Body className="modal-body">
                 <ul>
                     {data.name && <li>Homeworld: {data.name}</li>}
                     {species && <li>Species: {species}</li>}
@@ -59,14 +59,14 @@ const Card = ({name, homeworld, species, gender, height, mass, hair_color, skin_
                     {classification && <li>classification: {classification}</li>}
                     {designation && <li>designation: {designation}</li>}
                     {average_height && <li>average height: {average_height}</li>}
-                    {skin_color && <li>skin colors: {skin_colors}</li>}
+                    {skin_colors && <li>skin colors: {skin_colors}</li>}
                     {hair_colors && <li>hair colors: {hair_colors}</li>}
                     {eye_colors && <li>eye colors: {eye_colors}</li>}
                     {average_lifespan && <li>average lifespan: {average_lifespan}</li>}
                     {language && <li>language: {language}</li>}
                 </ul>
             </Modal.Body>
-            <Modal.Footer>
+            <Modal.Footer className="modal-footer">
                 <Button variant="secondary" onClick={handleClose}>
                     Close
                 </Button>

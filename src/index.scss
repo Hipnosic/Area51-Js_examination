@@ -24,31 +24,33 @@ code {
     monospace;
 }
 
-.image-container {
+.background-container {
+  position: relative;
+  display: inline-block;
+}
+
+.title {
+  text-align: center;
+  font-family: starwars;
+  font-size: 2em;
+  z-index: 1;
+  color: black;
+  -webkit-text-stroke: 0.5px yellow;
+  text-decoration: underline yellow;
+  text-underline-offset: 8px;
+  text-decoration-thickness: 1.5px;
+}
+
+.background {
   background-image: url("./assets/starwars.jpg");
   z-index: 0;
   background-repeat: no-repeat;
   background-size: cover;
   border: solid 2px rgb(239, 250, 84);
   padding: 15rem;
-  display: flex;
-  margin-top: .6rem;
-  
+  display: block;
   
 }
-
-.title-png {
-  background-image: url("./assets/title.png");
-}
-// .image {
-//   background-image: url("./assets/title.png");
-//   z-index: 1;
-//   background-repeat: no-repeat;
-//   background-size: cover;
-//   height: 6em;
-//   width: 12em;
-//   margin: 0 auto;
-// }
 
 .container {
   display: flex;

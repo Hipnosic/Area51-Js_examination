@@ -41,8 +41,9 @@ function App() {
         <img className="yoda" src="" alt=""></img>
         <img className="robot" src="" alt=""></img>
       </div>
-      <div className="image-container">
-        <div className="image"></div>
+      <div className="background-container">
+        <p className="title">Star Wars</p>
+        <div className="background"></div>
       </div>
       <div className="navbar">
         <button name="films" onClick={onTypeSelectHandler}>Films</button>

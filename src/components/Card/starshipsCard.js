@@ -1,13 +1,11 @@
 import React, {useEffect, useState} from "react";
 import { ButtonToolbar, Button, Modal } from "react-bootstrap";
 
-const Card = ({name, homeworld, species, gender, height, mass, hair_color, skin_color, eye_color, birth_year, classification, designation, average_height, skin_colors, hair_colors, eye_colors, average_lifespan, language, people, films}) => {
+const StarshipsCard = ({name, model, manufacturer, cost_in_credits, length, max_atmosphering_speed, crew, passengers, cargo_capacity, consumables, hyperdrive_rating, MGLT, starship_class, pilots, films}) => {
     
     const [show, setShow] = useState(false);
     const [data, setData] = useState([])
     const [loading, setLoading] = useState(true);
-
-    const [urls, setUrls] = useState([]);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -15,18 +13,20 @@ const Card = ({name, homeworld, species, gender, height, mass, hair_color, skin_
 
     async function getData() {
         setLoading(true);
-        const response = await fetch(homeworld)
+        console.log(films.children);
+        const response = await fetch(films.children)
         if (!response.ok) throw new Error(response.status)
         const data = await response.json();
         setData(data);
-        console.log(urls);
         console.log(data);
         setLoading(false);
+    
     }
 
     useEffect(() => {
         getData();
     }, [])
+
 
     return (
         <>
@@ -47,23 +47,20 @@ const Card = ({name, homeworld, species, gender, height, mass, hair_color, skin_
             </Modal.Header>
             <Modal.Body>
                 <ul>
-                    {data.name && <li>Homeworld: {data.name}</li>}
-                    {species && <li>Species: {species}</li>}
-                    {birth_year && <li>Birth year: {birth_year}</li>}
-                    {gender && <li>Gender: {gender}</li>}
-                    {height && <li>Height: {height}</li>}
-                    {mass && <li>Mass: {mass}</li>}
-                    {hair_color && <li>Hair Color: {hair_color}</li>}
-                    {skin_color && <li>Skin Color: {skin_color}</li>}
-                    {eye_color && <li>Eye Color: {eye_color}</li>}
-                    {classification && <li>classification: {classification}</li>}
-                    {designation && <li>designation: {designation}</li>}
-                    {average_height && <li>average height: {average_height}</li>}
-                    {skin_color && <li>skin colors: {skin_colors}</li>}
-                    {hair_colors && <li>hair colors: {hair_colors}</li>}
-                    {eye_colors && <li>eye colors: {eye_colors}</li>}
-                    {average_lifespan && <li>average lifespan: {average_lifespan}</li>}
-                    {language && <li>language: {language}</li>}
+                    <li>name: {data.name}</li>
+                    <li>model: {model}</li>
+                    <li>manufacturer: {manufacturer}</li>
+                    <li>cost in credits: {cost_in_credits}</li>
+                    <li>length: {length}</li>
+                    <li>max_atmosphering_speed: {max_atmosphering_speed}</li>
+                    <li>crew: {crew}</li>
+                    <li>passengers: {passengers}</li>
+                    <li>consumables: {consumables}</li>
+                    <li>hyperdrive_rating: {hyperdrive_rating}</li>
+                    <li>MGLT: {MGLT}</li>
+                    <li>starship_class: {starship_class}</li>
+                    <li>pilots: {pilots}</li>
+                    <li>films: {films}</li>
                 </ul>
             </Modal.Body>
             <Modal.Footer>
@@ -82,5 +79,4 @@ const Card = ({name, homeworld, species, gender, height, mass, hair_color, skin_
     )
 }
 
-export default Card;
-
+export default StarshipsCard;

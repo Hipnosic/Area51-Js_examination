@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { ButtonToolbar, Button, Modal } from "react-bootstrap";
-
+import FilmCard from "./FilmCard";
 const Card = ({
   name,
   species,
@@ -133,7 +133,6 @@ const Card = ({
 //       setCharacterLoading(false);
 //     }
 //   }
-   
   async function getResidents() {
     console.log("get residents: ");
     if (residents) {
@@ -176,19 +175,19 @@ const Card = ({
     }
   }
 
-  async function getCharacters() {
-    console.log("get characters: ");
-    if (characters) {
-      setCharactersLoading(true);
-      Promise.all(characters.map((u) => fetch(u)))
-        .then((responses) => Promise.all(responses.map((res) => res.json())))
-        .then((data) => {
-          setDataCharacters(data);
-          console.log("character data: ", data);
-        });
-      setCharactersLoading(false);
-    }
-  }
+  // async function getCharacters() {
+  //   console.log("get characters: ");
+  //   if (characters) {
+  //     setCharactersLoading(true);
+  //     Promise.all(characters.map((u) => fetch(u)))
+  //       .then((responses) => Promise.all(responses.map((res) => res.json())))
+  //       .then((data) => {
+  //         setDataCharacters(data);
+  //         console.log("character data: ", data);
+  //       });
+  //     setCharactersLoading(false);
+  //   }
+  // }
 
   async function getPlanets() {
     console.log("get planets: ");
@@ -225,7 +224,7 @@ const Card = ({
     getResidents();
     getPilots();
     getSpecies();
-    getCharacters();
+    // getCharacters();
     getPlanets();
     getStarships();
   }, []);
@@ -303,7 +302,7 @@ const Card = ({
                     </ul>
                   </li>
                 )}
-                {dataCharacters && (
+                {/* {dataCharacters && (
                   <li>
                     Characters:
                     <ul>
@@ -312,7 +311,9 @@ const Card = ({
                       })}
                     </ul>
                   </li>
-                )}
+                )} */}
+
+                <FilmCard />
                 {dataPlanets && (
                   <li>
                     Planets:
@@ -407,11 +408,11 @@ const Card = ({
                 {MGLT && <li>MGLT: {MGLT}</li>}
                 {starship_class && <li>starship_class: {starship_class}</li>}
                 
-                {episode_id && <li>Episode id: {episode_id}</li>}
+                {/* {episode_id && <li>Episode id: {episode_id}</li>}
                 {opening_crawl && <li>Opening: {opening_crawl}</li>}
                 {director && <li>Director: {director}</li>}
                 {producer && <li>Producer: {producer}</li>}
-                {release_date && <li>release_date: {release_date}</li>}
+                {release_date && <li>release_date: {release_date}</li>} */}
 
                 {vehicle_class && <li>vehicle_class: {vehicle_class}</li>}
 
@@ -428,7 +429,7 @@ const Card = ({
           </Modal>
         </>
       )}
-      {homeworldLoading && filmsLoading && ResidentsLoading && PilotsLoading && speciesLoading &&<p>laddar kort..</p>}
+      {homeworldLoading && filmsLoading && ResidentsLoading && PilotsLoading && speciesLoading && charactersLoading && planetsLoading && starshipsLoading &&<p>laddar kort..</p>}
     </>
   );
 };

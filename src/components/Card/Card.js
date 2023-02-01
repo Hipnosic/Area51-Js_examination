@@ -31,18 +31,16 @@ const Card = ({
   homeworld,
   people,
   films,
+  characters,
 }) => {
   const [show, setShow] = useState(false);
   const [data, setData] = useState([]);
 
-  const [dataHomeworld, setDataHomeworld] = useState("Unknown");
-  const [homeworldLoading, setHomeworldLoading] = useState(false);
-
-  const [dataFilms, setDataFilms] = useState([]);
-  const [filmsLoading, setFilmsLoading] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const [dataHomeworld, setDataHomeworld] = useState("Unknown");
+  const [homeworldLoading, setHomeworldLoading] = useState(false);
 
   async function getHomeworld() {
     console.log("get homeworld: ");
@@ -56,6 +54,9 @@ const Card = ({
       console.log("homeworld data: ", data);
     }
   }
+  
+  const [dataFilms, setDataFilms] = useState([]);
+  const [filmsLoading, setFilmsLoading] = useState(false);
 
   async function getFilms() {
     console.log("get films: ");
@@ -70,10 +71,28 @@ const Card = ({
       setFilmsLoading(false);
     }
   }
+
+  const [dataCharacter, setDataCharacter] = useState([]);
+  const [charactersLoading, setCharacterLoading] = useState(false);
+
+  async function getCharacters() {
+    console.log("get characters: ");
+    if (characters) {
+      setCharacterLoading(true);
+      Promise.all(characters.map((u) => fetch(u)))
+        .then((responses) => Promise.all(responses.map((res) => res.json())))
+        .then((data) => {
+          setDataCharacter(data);
+          console.log("character data: ", data);
+        });
+      setCharacterLoading(false);
+    }
+  }
    
   useEffect(() => {
     getHomeworld();
     getFilms();
+    getCharacters();
   }, []);
 
   //   async function getData() {
@@ -120,7 +139,7 @@ const Card = ({
 
   return (
     <>
-      {!homeworldLoading && !filmsLoading && (
+      {!homeworldLoading && !filmsLoading && !charactersLoading && (
         <>
           <ButtonToolbar className="card">
             <Button
@@ -149,6 +168,17 @@ const Card = ({
                     </ul>
                   </li>
                 )}
+
+                {dataCharacter && (
+                  <li>
+                    Characters:
+                    <ul>
+                      {dataCharacter.map((character) => {
+                        return <li key={character.name}>{character.name}</li>;
+                      })}
+                    </ul>
+                  </li>
+                )}      
                 {species && <li>Species: {species}</li>}
                 {birth_year && <li>Birth year: {birth_year}</li>}
                 {gender && <li>Gender: {gender}</li>}
@@ -190,7 +220,7 @@ const Card = ({
           </Modal>
         </>
       )}
-      {homeworldLoading && filmsLoading && <p>laddar kort..</p>}
+      {homeworldLoading && filmsLoading && charactersLoading && <p>laddar kort..</p>}
     </>
   );
 };

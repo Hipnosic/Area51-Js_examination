@@ -19,6 +19,14 @@ const Card = ({
   eye_colors,
   average_lifespan,
   language,
+  rotation_period,
+  orbital_period,
+  diameter,
+  climate,
+  gravity,
+  terrain,
+  surface_water,
+  population,
 
   homeworld,
   people,
@@ -62,7 +70,7 @@ const Card = ({
       setFilmsLoading(false);
     }
   }
-
+   
   useEffect(() => {
     getHomeworld();
     getFilms();
@@ -159,6 +167,19 @@ const Card = ({
                   <li>average lifespan: {average_lifespan}</li>
                 )}
                 {language && <li>language: {language}</li>}
+
+                {name && <li>Species: {name}</li>}
+                {rotation_period && <li>rotation_period: {rotation_period}</li>}
+                {orbital_period && <li>orbital_period: {orbital_period}</li>}
+                {diameter && <li>diameter: {diameter}</li>}
+                {climate && <li>climate: {climate}</li>}
+                {gravity && <li>gravity: {gravity}</li>}
+                {terrain && <li>terrain: {terrain}</li>}
+                {surface_water && <li>surface_water: {surface_water}</li>}
+                {population && <li>population: {population}</li>}
+                
+                
+
               </ul>
             </Modal.Body>
             <Modal.Footer className="modal-footer">

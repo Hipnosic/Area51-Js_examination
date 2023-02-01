@@ -6,8 +6,8 @@ import Card from "../Card/Card";
 const Planets = ({data}) => {
     return (
         <div className="card-container">
-            {data.results.map((planets) => {
-                return <Card {...planets} />
+            {data.results.map((planet) => {
+                return <Card {...planet} key={planet.name} />
             })}
         </div>
     )

@@ -13,7 +13,7 @@ import Title from "./assets/title.png";
 function App() {
   const [data, setData] = useState([])
   const [loading, setLoading] = useState(true);
-  const [currentType, setCurrentType] = useState("films");
+  const [currentType, setCurrentType] = useState("planets");
   
   async function getData() {
     setLoading(true);

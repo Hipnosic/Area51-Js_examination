@@ -6,8 +6,8 @@ import Card from "../Card/Card";
 const Vehicles = ({data}) => {
     return (
         <div className="card-container">
-            {data.results.map((vehicles) => {
-                return <Card {...vehicles} />
+            {data.results.map((vehicle) => {
+                return <Card {...vehicle} />
             })}
         </div>
     )

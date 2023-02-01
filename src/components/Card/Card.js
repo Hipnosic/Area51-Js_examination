@@ -41,6 +41,7 @@ const Card = ({
   MGLT,
   starship_class,
   pilots,
+  vehicle_class,
 
   title,
   episode_id,
@@ -115,6 +116,23 @@ const Card = ({
       setFilmsLoading(false);
     }
   }
+
+//   const [dataCharacter, setDataCharacter] = useState([]);
+//   const [charactersLoading, setCharacterLoading] = useState(false);
+
+//   async function getCharacters() {
+//     console.log("get characters: ");
+//     if (characters) {
+//       setCharacterLoading(true);
+//       Promise.all(characters.map((u) => fetch(u)))
+//         .then((responses) => Promise.all(responses.map((res) => res.json())))
+//         .then((data) => {
+//           setDataCharacter(data);
+//           console.log("character data: ", data);
+//         });
+//       setCharacterLoading(false);
+//     }
+//   }
    
   async function getResidents() {
     console.log("get residents: ");
@@ -203,6 +221,7 @@ const Card = ({
   useEffect(() => {
     getHomeworld();
     getFilms();
+    getSpecies();
     getResidents();
     getPilots();
     getSpecies();
@@ -255,7 +274,7 @@ const Card = ({
 
   return (
     <>
-      {!homeworldLoading && !filmsLoading && (
+      {!homeworldLoading && !filmsLoading &&  (
         <>
           <ButtonToolbar className="card">
             <Button
@@ -345,6 +364,8 @@ const Card = ({
                     </ul>
                   </li>
                 )}
+
+                
                 {birth_year && <li>Birth year: {birth_year}</li>}
                 {gender && <li>Gender: {gender}</li>}
                 {height && <li>Height: {height}</li>}
@@ -363,7 +384,7 @@ const Card = ({
                 )}
                 {language && <li>language: {language}</li>}
 
-                {name && <li>Name: {name}</li>}
+                {name && <li>name: {name}</li>}
                 {rotation_period && <li>rotation_period: {rotation_period}</li>}
                 {orbital_period && <li>orbital_period: {orbital_period}</li>}
                 {diameter && <li>diameter: {diameter}</li>}
@@ -390,7 +411,9 @@ const Card = ({
                 {opening_crawl && <li>Opening: {opening_crawl}</li>}
                 {director && <li>Director: {director}</li>}
                 {producer && <li>Producer: {producer}</li>}
-                {release_date && <li>{release_date}</li>}
+                {release_date && <li>release_date: {release_date}</li>}
+
+                {vehicle_class && <li>vehicle_class: {vehicle_class}</li>}
 
                 
                 
@@ -405,7 +428,7 @@ const Card = ({
           </Modal>
         </>
       )}
-      {homeworldLoading && filmsLoading && ResidentsLoading && PilotsLoading &&<p>laddar kort..</p>}
+      {homeworldLoading && filmsLoading && ResidentsLoading && PilotsLoading && speciesLoading &&<p>laddar kort..</p>}
     </>
   );
 };

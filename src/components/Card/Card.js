@@ -27,6 +27,20 @@ const Card = ({
   terrain,
   surface_water,
   population,
+  residents,
+  model,
+  manufacturer,
+  cost_in_credits,
+  length,
+  max_atmosphering_speed,
+  crew,
+  passengers,
+  cargo_capacity,
+  consumables,
+  hyperdrive_rating,
+  MGLT,
+  starship_class,
+  pilots,
 
   homeworld,
   people,
@@ -40,6 +54,12 @@ const Card = ({
 
   const [dataFilms, setDataFilms] = useState([]);
   const [filmsLoading, setFilmsLoading] = useState(false);
+
+  const [dataResidents, setDataResidents] = useState([]);
+  const [ResidentsLoading, setResidentsLoading] = useState(false);
+
+  const [dataPilots, setDataPilots] = useState([]);
+  const [PilotsLoading, setPilotsLoading] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -71,9 +91,39 @@ const Card = ({
     }
   }
    
+  async function getResidents() {
+    console.log("get residents: ");
+    if (residents) {
+      setResidentsLoading(true);
+      Promise.all(residents.map((u) => fetch(u)))
+        .then((responses) => Promise.all(responses.map((res) => res.json())))
+        .then((data) => {
+          setDataResidents(data);
+          console.log("residents data: ", data);
+        });
+      setResidentsLoading(false);
+    }
+  }
+
+  async function getPilots() {
+    console.log("get pilots: ");
+    if (pilots) {
+      setPilotsLoading(true);
+      Promise.all(pilots.map((u) => fetch(u)))
+        .then((responses) => Promise.all(responses.map((res) => res.json())))
+        .then((data) => {
+          setDataPilots(data);
+          console.log("pilots data: ", data);
+        });
+      setPilotsLoading(false);
+    }
+  }
+
   useEffect(() => {
     getHomeworld();
     getFilms();
+    getResidents();
+    getPilots();
   }, []);
 
   //   async function getData() {
@@ -149,6 +199,27 @@ const Card = ({
                     </ul>
                   </li>
                 )}
+                {dataResidents && (
+                  <li>
+                    Residents:
+                    <ul>
+                      {dataResidents.map((residents) => {
+                        return <li key={residents.name}>{residents.name}</li>;
+                      })}
+                    </ul>
+                  </li>
+                )}
+                {dataPilots && (
+                  <li>
+                    Pilots:
+                    <ul>
+                      {dataPilots.map((pilots) => {
+                        return <li key={pilots.name}>{pilots.name}</li>;
+                      })}
+                    </ul>
+                  </li>
+                )}
+
                 {species && <li>Species: {species}</li>}
                 {birth_year && <li>Birth year: {birth_year}</li>}
                 {gender && <li>Gender: {gender}</li>}
@@ -177,6 +248,21 @@ const Card = ({
                 {terrain && <li>terrain: {terrain}</li>}
                 {surface_water && <li>surface_water: {surface_water}</li>}
                 {population && <li>population: {population}</li>}
+
+                {model && <li>model: {model}</li>}
+                {manufacturer && <li>manufacturer: {manufacturer}</li>}
+                {cost_in_credits && <li>cost_in_credits: {cost_in_credits}</li>}
+                {length && <li>length: {length}</li>}
+                {max_atmosphering_speed && <li>max_atmosphering_speed: {max_atmosphering_speed}</li>}
+                {crew && <li>crew: {crew}</li>}
+                {passengers && <li>passengers: {passengers}</li>}
+                {cargo_capacity && <li>cargo_capacity: {cargo_capacity}</li>}
+                {consumables && <li>consumables: {consumables}</li>}
+                {hyperdrive_rating && <li>hyperdrive_rating: {hyperdrive_rating}</li>}
+                {MGLT && <li>MGLT: {MGLT}</li>}
+                {starship_class && <li>starship_class: {starship_class}</li>}
+                
+
                 
                 
 
@@ -190,7 +276,7 @@ const Card = ({
           </Modal>
         </>
       )}
-      {homeworldLoading && filmsLoading && <p>laddar kort..</p>}
+      {homeworldLoading && filmsLoading && ResidentsLoading && PilotsLoading &&<p>laddar kort..</p>}
     </>
   );
 };

@@ -43,6 +43,48 @@
 //   pilots,
 //   vehicle_class,
 
+//   title,
+//   episode_id,
+//   opening_crawl,
+//   director,
+//   producer,
+//   release_date,
+//   characters,
+//   planets,
+//   starships,
+//   vehicles,
+
+//   homeworld,
+//   people,
+//   films,
+// }) => {
+//   const [show, setShow] = useState(false);
+//   const [data, setData] = useState([])
+
+//   const [dataResidents, setDataResidents] = useState([]);
+//   const [ResidentsLoading, setResidentsLoading] = useState(false);
+
+//   const [dataPilots, setDataPilots] = useState([]);
+//   const [PilotsLoading, setPilotsLoading] = useState(false);
+
+//   const [dataHomeworld, setDataHomeworld] = useState("Unknown");
+//   const [homeworldLoading, setHomeworldLoading] = useState(false);
+
+//   const [dataFilms, setDataFilms] = useState([]);
+//   const [filmsLoading, setFilmsLoading] = useState(false);
+
+//   const [dataSpecies, setDataSpecies] = useState([]);
+//   const [speciesLoading, setSpeciesLoading] = useState(false);
+
+//   const [dataCharacters, setDataCharacters] = useState([]);
+//   const [charactersLoading, setCharactersLoading] = useState(false);
+
+//   const [dataPlanets, setDataPlanets] = useState([]);
+//   const [planetsLoading, setPlanetsLoading] = useState(false);
+
+//   const [dataStarships, setDataStarships] = useState([]);
+//   const [starshipsLoading, setStarshipsLoading] = useState(false);
+
 //   homeworld,
 //   people,
 //   films,
@@ -96,6 +138,242 @@
 //       setFilmsLoading(false);
 //     }
 //   }
+
+// //   const [dataCharacter, setDataCharacter] = useState([]);
+// //   const [charactersLoading, setCharacterLoading] = useState(false);
+
+// //   async function getCharacters() {
+// //     console.log("get characters: ");
+// //     if (characters) {
+// //       setCharacterLoading(true);
+// //       Promise.all(characters.map((u) => fetch(u)))
+// //         .then((responses) => Promise.all(responses.map((res) => res.json())))
+// //         .then((data) => {
+// //           setDataCharacter(data);
+// //           console.log("character data: ", data);
+// //         });
+// //       setCharacterLoading(false);
+// //     }
+// //   }
+//   async function getResidents() {
+//     console.log("get residents: ");
+//     if (residents) {
+//       setResidentsLoading(true);
+//       Promise.all(residents.map((u) => fetch(u)))
+//         .then((responses) => Promise.all(responses.map((res) => res.json())))
+//         .then((data) => {
+//           setDataResidents(data);
+//           console.log("residents data: ", data);
+//         });
+//       setResidentsLoading(false);
+//     }
+//   }
+
+//   async function getPilots() {
+//     console.log("get pilots: ");
+//     if (pilots) {
+//       setPilotsLoading(true);
+//       Promise.all(pilots.map((u) => fetch(u)))
+//         .then((responses) => Promise.all(responses.map((res) => res.json())))
+//         .then((data) => {
+//           setDataPilots(data);
+//           console.log("pilots data: ", data);
+//         });
+//       setPilotsLoading(false);
+//     }
+//   }
+
+//   async function getSpecies() {
+//     console.log("get species: ");
+//     if (species) {
+//       setSpeciesLoading(true);
+//       Promise.all(species.map((u) => fetch(u)))
+//         .then((responses) => Promise.all(responses.map((res) => res.json())))
+//         .then((data) => {
+//           setDataSpecies(data);
+//           console.log("species data: ", data);
+//         });
+//       setSpeciesLoading(false);
+//     }
+//   }
+
+//   // async function getCharacters() {
+//   //   console.log("get characters: ");
+//   //   if (characters) {
+//   //     setCharactersLoading(true);
+//   //     Promise.all(characters.map((u) => fetch(u)))
+//   //       .then((responses) => Promise.all(responses.map((res) => res.json())))
+//   //       .then((data) => {
+//   //         setDataCharacters(data);
+//   //         console.log("character data: ", data);
+//   //       });
+//   //     setCharactersLoading(false);
+//   //   }
+//   // }
+
+//   async function getPlanets() {
+//     console.log("get planets: ");
+//     if (planets) {
+//       setPlanetsLoading(true);
+//       Promise.all(planets.map((u) => fetch(u)))
+//         .then((responses) => Promise.all(responses.map((res) => res.json())))
+//         .then((data) => {
+//           setDataPlanets(data);
+//           console.log("planet data: ", data);
+//         });
+//         setPlanetsLoading(false);
+//     }
+//   }
+
+//   async function getStarships() {
+//     console.log("get starships: ");
+//     if (starships) {
+//       setStarshipsLoading(true);
+//       Promise.all(starships.map((u) => fetch(u)))
+//         .then((responses) => Promise.all(responses.map((res) => res.json())))
+//         .then((data) => {
+//           setDataStarships(data);
+//           console.log("starship data: ", data);
+//         });
+//       setStarshipsLoading(false);
+//     }
+//   }
+
+//   useEffect(() => {
+//     getHomeworld();
+//     getFilms();
+//     getSpecies();
+//     getResidents();
+//     getPilots();
+//     getSpecies();
+//     // getCharacters();
+//     getPlanets();
+//     getStarships();
+//   }, []);
+
+//   //   async function getData() {
+//   //     if (homeworld) {
+//   //       setLoading(true);
+//   //       const response = await fetch(homeworld);
+//   //       if (!response.ok) throw new Error(response.status);
+//   //       const data = await response.json();
+//   //       setData(data);
+//   //       console.log("homeworld: ", data);
+//   //       setLoading(false);
+//   //     } else {
+//   //       setData({ name: "unknown" });
+//   //     }
+//   //   }
+
+//   //   async function getAllData() {
+//   //     setLoading(true);
+//   //     const requests = urls.map((url) => fetch(url).then((res) => res.json()));
+//   //     Promise.all(requests).then((members) => console.log(members));
+//   //     setLoading(false);
+//   //   }
+
+//   //   const initUrls = () => {
+//   //     console.log("urls");
+//   //     if (homeworld) {
+//   //       setUrls((urls) => [...urls, homeworld]);
+//   //     }
+//   //     if (films) {
+//   //       films.forEach((film) => {
+//   //         setUrls((urls) => [...urls, film]);
+//   //       });
+//   //     }
+//   //     setUrlsReady(true);
+//   //   };
+
+//   //   useEffect(() => {
+//   //     getAllData();
+//   //   }, [urlsReady]);
+
+//   //   useEffect(() => {
+//   //     initUrls();
+//   //   }, []);
+
+//   return (
+//     <>
+//       {!homeworldLoading && !filmsLoading &&  (
+//         <>
+//           <ButtonToolbar className="card">
+//             <Button
+//               className="btn bg-transparent border-0"
+//               onClick={handleShow}
+//             >
+//               <div className="text-container">
+//                 <p>{name}</p>
+//               </div>
+//             </Button>
+//           </ButtonToolbar>
+//           <Modal show={show} onHide={handleClose}>
+//             <Modal.Header className="modal-header">
+//               <Modal.Title>{name}</Modal.Title>
+//             </Modal.Header>
+//             <Modal.Body className="modal-body">
+//               <ul>
+//                 {/* {dataHomeworld && <li>Homeworld: {dataHomeworld}</li>}
+//                 {dataFilms && (
+//                   <li>
+//                     Films:
+//                     <ul>
+//                       {dataFilms.map((film) => {
+//                         return <li key={film.title}>{film.title}</li>;
+//                       })}
+//                     </ul>
+//                   </li>
+//                 )} */}
+//                 {/* {dataCharacters && (
+//                   <li>
+//                     Characters:
+//                     <ul>
+//                       {dataCharacters.map((character) => {
+//                         return <li key={character.name}>{character.name}</li>;
+//                       })}
+//                     </ul>
+//                   </li>
+//                 )} */}
+//                 {dataPlanets && (
+//                   <li>
+//                     Planets:
+//                     <ul>
+//                       {dataPlanets.map((planet) => {
+//                         return <li key={planet.name}>{planet.name}</li>;
+//                       })}
+//                     </ul>
+//                   </li>
+//                 )}  
+//                 {dataStarships && (
+//                   <li>
+//                     Starships:
+//                     <ul>
+//                       {dataStarships.map((starship) => {
+//                         return <li key={starship.name}>{starship.name}</li>;
+//                       })}
+//                     </ul>
+//                   </li>
+//                 )}  
+//                 {dataResidents && (
+//                   <li>
+//                     Residents:
+//                     <ul>
+//                       {dataResidents.map((residents) => {
+//                         return <li key={residents.name}>{residents.name}</li>;
+//                       })}
+//                     </ul>
+//                   </li>
+//                 )}
+//                 {dataPilots && (
+//                   <li>
+//                     Pilots:
+//                     <ul>
+//                       {dataPilots.map((pilots) => {
+//                         return <li key={pilots.name}>{pilots.name}</li>;
+//                       })}
+//                     </ul>
+//                   </li>
+//                 )}
 
 //   async function getResidents() {
 //     console.log("get residents: ");
@@ -294,6 +572,12 @@
 //                 {hyperdrive_rating && <li>hyperdrive_rating: {hyperdrive_rating}</li>}
 //                 {MGLT && <li>MGLT: {MGLT}</li>}
 //                 {starship_class && <li>starship_class: {starship_class}</li>}
+                
+//                 {/* {episode_id && <li>Episode id: {episode_id}</li>}
+//                 {opening_crawl && <li>Opening: {opening_crawl}</li>}
+//                 {director && <li>Director: {director}</li>}
+//                 {producer && <li>Producer: {producer}</li>}
+//                 {release_date && <li>release_date: {release_date}</li>} */}
 
 //                 {vehicle_class && <li>vehicle_class: {vehicle_class}</li>}
 
@@ -310,6 +594,7 @@
 //           </Modal>
 //         </>
 //       )}
+//       {homeworldLoading && filmsLoading && ResidentsLoading && PilotsLoading && speciesLoading && charactersLoading && planetsLoading && starshipsLoading &&<p>laddar kort..</p>}
 //       {homeworldLoading && filmsLoading && ResidentsLoading && PilotsLoading && speciesLoading &&<p>laddar kort..</p>}
 //     </>
 //   );

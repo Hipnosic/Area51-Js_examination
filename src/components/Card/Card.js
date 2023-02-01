@@ -312,8 +312,6 @@ const Card = ({
                     </ul>
                   </li>
                 )} */}
-
-                <FilmCard />
                 {dataPlanets && (
                   <li>
                     Planets:

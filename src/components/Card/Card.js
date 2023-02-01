@@ -69,8 +69,11 @@ const Card = ({
   const [dataFilms, setDataFilms] = useState([]);
   const [filmsLoading, setFilmsLoading] = useState(false);
 
-  const [dataCharacter, setDataCharacter] = useState([]);
-  const [charactersLoading, setCharacterLoading] = useState(false);
+//   const [dataCharacter, setDataCharacter] = useState([]);
+//   const [charactersLoading, setCharacterLoading] = useState(false);
+
+  const [dataSpecies, setDataSpecies] = useState([]);
+  const [speciesLoading, setSpeciesLoading] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -105,19 +108,19 @@ const Card = ({
   }
 
 
-  async function getCharacters() {
-    console.log("get characters: ");
-    if (characters) {
-      setCharacterLoading(true);
-      Promise.all(characters.map((u) => fetch(u)))
-        .then((responses) => Promise.all(responses.map((res) => res.json())))
-        .then((data) => {
-          setDataCharacter(data);
-          console.log("character data: ", data);
-        });
-      setCharacterLoading(false);
-    }
-  }
+//   async function getCharacters() {
+//     console.log("get characters: ");
+//     if (characters) {
+//       setCharacterLoading(true);
+//       Promise.all(characters.map((u) => fetch(u)))
+//         .then((responses) => Promise.all(responses.map((res) => res.json())))
+//         .then((data) => {
+//           setDataCharacter(data);
+//           console.log("character data: ", data);
+//         });
+//       setCharacterLoading(false);
+//     }
+//   }
    
   async function getResidents() {
     console.log("get residents: ");
@@ -147,10 +150,25 @@ const Card = ({
     }
   }
 
+  async function getSpecies() {
+    console.log("get species: ");
+    if (species) {
+      setSpeciesLoading(true);
+      Promise.all(species.map((u) => fetch(u)))
+        .then((responses) => Promise.all(responses.map((res) => res.json())))
+        .then((data) => {
+          setDataSpecies(data);
+          console.log("species data: ", data);
+        });
+      setSpeciesLoading(false);
+    }
+  }
+
+
   useEffect(() => {
     getHomeworld();
     getFilms();
-    getCharacters();
+    // getCharacters();
     getResidents();
     getPilots();
   }, []);
@@ -199,7 +217,7 @@ const Card = ({
 
   return (
     <>
-      {!homeworldLoading && !filmsLoading && !charactersLoading && (
+      {!homeworldLoading && !filmsLoading && (
         <>
           <ButtonToolbar className="card">
             <Button
@@ -228,8 +246,7 @@ const Card = ({
                     </ul>
                   </li>
                 )}
-
-                {dataCharacter && (
+                {/* {dataCharacter && (
                   <li>
                     Characters:
                     <ul>
@@ -238,7 +255,7 @@ const Card = ({
                       })}
                     </ul>
                   </li>
-                )}      
+                )}       */}
                 {dataResidents && (
                   <li>
                     Residents:
@@ -255,6 +272,17 @@ const Card = ({
                     <ul>
                       {dataPilots.map((pilots) => {
                         return <li key={pilots.name}>{pilots.name}</li>;
+                      })}
+                    </ul>
+                  </li>
+                )}
+
+                {dataSpecies && (
+                  <li>
+                    Species:
+                    <ul>
+                      {dataSpecies.map((species) => {
+                        return <li key={species.name}>{species.name}</li>;
                       })}
                     </ul>
                   </li>
@@ -321,7 +349,7 @@ const Card = ({
           </Modal>
         </>
       )}
-      {homeworldLoading && filmsLoading && ResidentsLoading && PilotsLoading && charactersLoading &&<p>laddar kort..</p>}
+      {homeworldLoading && filmsLoading && ResidentsLoading && PilotsLoading &&<p>laddar kort..</p>}
     </>
   );
 };

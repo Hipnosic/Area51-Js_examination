@@ -85,6 +85,28 @@
 //   const [dataStarships, setDataStarships] = useState([]);
 //   const [starshipsLoading, setStarshipsLoading] = useState(false);
 
+//   homeworld,
+//   people,
+//   films,
+// }) => {
+//   const [show, setShow] = useState(false);
+//   const [data, setData] = useState([])
+
+//   const [dataResidents, setDataResidents] = useState([]);
+//   const [ResidentsLoading, setResidentsLoading] = useState(false);
+
+//   const [dataPilots, setDataPilots] = useState([]);
+//   const [PilotsLoading, setPilotsLoading] = useState(false);
+
+//   const [dataHomeworld, setDataHomeworld] = useState("Unknown");
+//   const [homeworldLoading, setHomeworldLoading] = useState(false);
+
+//   const [dataFilms, setDataFilms] = useState([]);
+//   const [filmsLoading, setFilmsLoading] = useState(false);
+
+//   const [dataSpecies, setDataSpecies] = useState([]);
+//   const [speciesLoading, setSpeciesLoading] = useState(false);
+
 //   const handleClose = () => setShow(false);
 //   const handleShow = () => setShow(true);
 
@@ -353,6 +375,151 @@
 //                   </li>
 //                 )}
 
+//   async function getResidents() {
+//     console.log("get residents: ");
+//     if (residents) {
+//       setResidentsLoading(true);
+//       Promise.all(residents.map((u) => fetch(u)))
+//         .then((responses) => Promise.all(responses.map((res) => res.json())))
+//         .then((data) => {
+//           setDataResidents(data);
+//           console.log("residents data: ", data);
+//         });
+//       setResidentsLoading(false);
+//     }
+//   }
+
+//   async function getPilots() {
+//     console.log("get pilots: ");
+//     if (pilots) {
+//       setPilotsLoading(true);
+//       Promise.all(pilots.map((u) => fetch(u)))
+//         .then((responses) => Promise.all(responses.map((res) => res.json())))
+//         .then((data) => {
+//           setDataPilots(data);
+//           console.log("pilots data: ", data);
+//         });
+//       setPilotsLoading(false);
+//     }
+//   }
+
+//   async function getSpecies() {
+//     console.log("get species: ");
+//     if (species) {
+//       setSpeciesLoading(true);
+//       Promise.all(species.map((u) => fetch(u)))
+//         .then((responses) => Promise.all(responses.map((res) => res.json())))
+//         .then((data) => {
+//           setDataSpecies(data);
+//           console.log("species data: ", data);
+//         });
+//       setSpeciesLoading(false);
+//     }
+//   }
+
+//   useEffect(() => {
+//     getHomeworld();
+//     getFilms();
+//     getSpecies();
+//     getResidents();
+//     getPilots();
+//     getSpecies();
+//   }, []);
+
+//   //   async function getData() {
+//   //     if (homeworld) {
+//   //       setLoading(true);
+//   //       const response = await fetch(homeworld);
+//   //       if (!response.ok) throw new Error(response.status);
+//   //       const data = await response.json();
+//   //       setData(data);
+//   //       console.log("homeworld: ", data);
+//   //       setLoading(false);
+//   //     } else {
+//   //       setData({ name: "unknown" });
+//   //     }
+//   //   }
+
+//   //   async function getAllData() {
+//   //     setLoading(true);
+//   //     const requests = urls.map((url) => fetch(url).then((res) => res.json()));
+//   //     Promise.all(requests).then((members) => console.log(members));
+//   //     setLoading(false);
+//   //   }
+
+//   //   const initUrls = () => {
+//   //     console.log("urls");
+//   //     if (homeworld) {
+//   //       setUrls((urls) => [...urls, homeworld]);
+//   //     }
+//   //     if (films) {
+//   //       films.forEach((film) => {
+//   //         setUrls((urls) => [...urls, film]);
+//   //       });
+//   //     }
+//   //     setUrlsReady(true);
+//   //   };
+
+//   //   useEffect(() => {
+//   //     getAllData();
+//   //   }, [urlsReady]);
+
+//   //   useEffect(() => {
+//   //     initUrls();
+//   //   }, []);
+
+//   return (
+//     <>
+//       {!homeworldLoading && !filmsLoading &&  (
+//         <>
+//           <ButtonToolbar className="card">
+//             <Button
+//               className="btn bg-transparent border-0"
+//               onClick={handleShow}
+//             >
+//               <div className="text-container">
+//                 <p>{name}</p>
+//               </div>
+//             </Button>
+//           </ButtonToolbar>
+//           <Modal show={show} onHide={handleClose}>
+//             <Modal.Header className="modal-header">
+//               <Modal.Title>{name}</Modal.Title>
+//             </Modal.Header>
+//             <Modal.Body className="modal-body">
+//               <ul>
+//                 {dataHomeworld && <li>Homeworld: {dataHomeworld}</li>}
+//                 {dataFilms && (
+//                   <li>
+//                     Films:
+//                     <ul>
+//                       {dataFilms.map((film) => {
+//                         return <li key={film.title}>{film.title}</li>;
+//                       })}
+//                     </ul>
+//                   </li>
+//                 )}
+//                 {dataResidents && (
+//                   <li>
+//                     Residents:
+//                     <ul>
+//                       {dataResidents.map((residents) => {
+//                         return <li key={residents.name}>{residents.name}</li>;
+//                       })}
+//                     </ul>
+//                   </li>
+//                 )}
+//                 {dataPilots && (
+//                   <li>
+//                     Pilots:
+//                     <ul>
+//                       {dataPilots.map((pilots) => {
+//                         return <li key={pilots.name}>{pilots.name}</li>;
+//                       })}
+//                     </ul>
+//                   </li>
+//                 )}
+
 //                 {dataSpecies && (
 //                   <li>
 //                     Species:
@@ -428,6 +595,7 @@
 //         </>
 //       )}
 //       {homeworldLoading && filmsLoading && ResidentsLoading && PilotsLoading && speciesLoading && charactersLoading && planetsLoading && starshipsLoading &&<p>laddar kort..</p>}
+//       {homeworldLoading && filmsLoading && ResidentsLoading && PilotsLoading && speciesLoading &&<p>laddar kort..</p>}
 //     </>
 //   );
 // };

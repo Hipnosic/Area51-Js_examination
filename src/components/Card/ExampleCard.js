@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { ButtonToolbar, Button, Modal } from "react-bootstrap";
 
 const ExampleCard = ({
+  name,
 }) => {
 
     const [show, setShow] = useState(false);
@@ -9,7 +10,6 @@ const ExampleCard = ({
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-
 
     useEffect(() => {
       }, []);
@@ -23,13 +23,13 @@ const ExampleCard = ({
                 onClick={handleShow}
               >
                 <div className="text-container">
-                  <p>{title}</p>
+                  <p>{}</p>
                 </div>
               </Button>
             </ButtonToolbar>
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header className="modal-header">
-                    <Modal.Title>{title}</Modal.Title>
+                    <Modal.Title>{}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body className="modal-body">
                 <ul>

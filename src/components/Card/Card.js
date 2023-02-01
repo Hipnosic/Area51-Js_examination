@@ -42,10 +42,17 @@ const Card = ({
   starship_class,
   pilots,
 
+  title,
+  episode_id,
+  opening_crawl,
+  director,
+  producer,
+  release_date,
+  characters,
+
   homeworld,
   people,
   films,
-  characters,
 }) => {
   const [show, setShow] = useState(false);
   const [data, setData] = useState([])
@@ -56,11 +63,18 @@ const Card = ({
   const [dataPilots, setDataPilots] = useState([]);
   const [PilotsLoading, setPilotsLoading] = useState(false);
 
+  const [dataHomeworld, setDataHomeworld] = useState("Unknown");
+  const [homeworldLoading, setHomeworldLoading] = useState(false);
+
+  const [dataFilms, setDataFilms] = useState([]);
+  const [filmsLoading, setFilmsLoading] = useState(false);
+
+  const [dataCharacter, setDataCharacter] = useState([]);
+  const [charactersLoading, setCharacterLoading] = useState(false);
+
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const [dataHomeworld, setDataHomeworld] = useState("Unknown");
-  const [homeworldLoading, setHomeworldLoading] = useState(false);
 
   async function getHomeworld() {
     console.log("get homeworld: ");
@@ -74,9 +88,7 @@ const Card = ({
       console.log("homeworld data: ", data);
     }
   }
-  
-  const [dataFilms, setDataFilms] = useState([]);
-  const [filmsLoading, setFilmsLoading] = useState(false);
+
 
   async function getFilms() {
     console.log("get films: ");
@@ -92,8 +104,6 @@ const Card = ({
     }
   }
 
-  const [dataCharacter, setDataCharacter] = useState([]);
-  const [charactersLoading, setCharacterLoading] = useState(false);
 
   async function getCharacters() {
     console.log("get characters: ");
@@ -292,6 +302,11 @@ const Card = ({
                 {MGLT && <li>MGLT: {MGLT}</li>}
                 {starship_class && <li>starship_class: {starship_class}</li>}
                 
+                {episode_id && <li>Episode id: {episode_id}</li>}
+                {opening_crawl && <li>Opening: {opening_crawl}</li>}
+                {director && <li>Director: {director}</li>}
+                {producer && <li>Producer: {producer}</li>}
+                {release_date && <li>{release_date}</li>}
 
                 
                 

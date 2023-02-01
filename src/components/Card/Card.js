@@ -49,6 +49,9 @@ const Card = ({
   producer,
   release_date,
   characters,
+  planets,
+  starships,
+  vehicles,
 
   homeworld,
   people,
@@ -69,11 +72,17 @@ const Card = ({
   const [dataFilms, setDataFilms] = useState([]);
   const [filmsLoading, setFilmsLoading] = useState(false);
 
-//   const [dataCharacter, setDataCharacter] = useState([]);
-//   const [charactersLoading, setCharacterLoading] = useState(false);
-
   const [dataSpecies, setDataSpecies] = useState([]);
   const [speciesLoading, setSpeciesLoading] = useState(false);
+
+  const [dataCharacters, setDataCharacters] = useState([]);
+  const [charactersLoading, setCharactersLoading] = useState(false);
+
+  const [dataPlanets, setDataPlanets] = useState([]);
+  const [planetsLoading, setPlanetsLoading] = useState(false);
+
+  const [dataStarships, setDataStarships] = useState([]);
+  const [starshipsLoading, setStarshipsLoading] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -106,21 +115,6 @@ const Card = ({
       setFilmsLoading(false);
     }
   }
-
-
-//   async function getCharacters() {
-//     console.log("get characters: ");
-//     if (characters) {
-//       setCharacterLoading(true);
-//       Promise.all(characters.map((u) => fetch(u)))
-//         .then((responses) => Promise.all(responses.map((res) => res.json())))
-//         .then((data) => {
-//           setDataCharacter(data);
-//           console.log("character data: ", data);
-//         });
-//       setCharacterLoading(false);
-//     }
-//   }
    
   async function getResidents() {
     console.log("get residents: ");
@@ -164,13 +158,57 @@ const Card = ({
     }
   }
 
+  async function getCharacters() {
+    console.log("get characters: ");
+    if (characters) {
+      setCharactersLoading(true);
+      Promise.all(characters.map((u) => fetch(u)))
+        .then((responses) => Promise.all(responses.map((res) => res.json())))
+        .then((data) => {
+          setDataCharacters(data);
+          console.log("character data: ", data);
+        });
+      setCharactersLoading(false);
+    }
+  }
+
+  async function getPlanets() {
+    console.log("get planets: ");
+    if (planets) {
+      setPlanetsLoading(true);
+      Promise.all(planets.map((u) => fetch(u)))
+        .then((responses) => Promise.all(responses.map((res) => res.json())))
+        .then((data) => {
+          setDataPlanets(data);
+          console.log("planet data: ", data);
+        });
+        setPlanetsLoading(false);
+    }
+  }
+
+  async function getStarships() {
+    console.log("get starships: ");
+    if (starships) {
+      setStarshipsLoading(true);
+      Promise.all(starships.map((u) => fetch(u)))
+        .then((responses) => Promise.all(responses.map((res) => res.json())))
+        .then((data) => {
+          setDataStarships(data);
+          console.log("starship data: ", data);
+        });
+      setStarshipsLoading(false);
+    }
+  }
 
   useEffect(() => {
     getHomeworld();
     getFilms();
-    // getCharacters();
     getResidents();
     getPilots();
+    getSpecies();
+    getCharacters();
+    getPlanets();
+    getStarships();
   }, []);
 
   //   async function getData() {
@@ -246,16 +284,36 @@ const Card = ({
                     </ul>
                   </li>
                 )}
-                {/* {dataCharacter && (
+                {dataCharacters && (
                   <li>
                     Characters:
                     <ul>
-                      {dataCharacter.map((character) => {
+                      {dataCharacters.map((character) => {
                         return <li key={character.name}>{character.name}</li>;
                       })}
                     </ul>
                   </li>
-                )}       */}
+                )}
+                {dataPlanets && (
+                  <li>
+                    Planets:
+                    <ul>
+                      {dataPlanets.map((planet) => {
+                        return <li key={planet.name}>{planet.name}</li>;
+                      })}
+                    </ul>
+                  </li>
+                )}  
+                {dataStarships && (
+                  <li>
+                    Starships:
+                    <ul>
+                      {dataStarships.map((starship) => {
+                        return <li key={starship.name}>{starship.name}</li>;
+                      })}
+                    </ul>
+                  </li>
+                )}  
                 {dataResidents && (
                   <li>
                     Residents:
@@ -287,8 +345,6 @@ const Card = ({
                     </ul>
                   </li>
                 )}
-
-                {species && <li>Species: {species}</li>}
                 {birth_year && <li>Birth year: {birth_year}</li>}
                 {gender && <li>Gender: {gender}</li>}
                 {height && <li>Height: {height}</li>}
@@ -307,7 +363,7 @@ const Card = ({
                 )}
                 {language && <li>language: {language}</li>}
 
-                {name && <li>Species: {name}</li>}
+                {name && <li>Name: {name}</li>}
                 {rotation_period && <li>rotation_period: {rotation_period}</li>}
                 {orbital_period && <li>orbital_period: {orbital_period}</li>}
                 {diameter && <li>diameter: {diameter}</li>}

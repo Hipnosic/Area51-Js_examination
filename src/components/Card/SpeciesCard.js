@@ -22,11 +22,28 @@ const SpeciesCard = ({
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    const [dataHomeworld, setDataHomeworld] = useState("Unknown");
+    const [homeworldLoading, setHomeworldLoading] = useState(false);
+
     const [dataFilms, setDataFilms] = useState([]);
     const [filmsLoading, setFilmsLoading] = useState(false);
 
     const [dataPeople, setDataPeople] = useState([]);
     const [peopleLoading, setPeopleLoading] = useState(false);
+
+
+    async function getHomeworld() {
+      console.log("get homeworld: ");
+      if (homeworld) {
+        setHomeworldLoading(true);
+        const response = await fetch(homeworld);
+        if (!response.ok) throw new Error(response.status);
+        const data = await response.json();
+        setDataHomeworld(data.name);
+        setHomeworldLoading(false);
+        console.log("homeworld data: ", data);
+      }
+    }
 
     async function getFilms() {
       console.log("get films: ");
@@ -58,8 +75,10 @@ const SpeciesCard = ({
 
 
     useEffect(() => {
+      getHomeworld();
       getFilms();
       getPeople();
+
       }, []);
 
     return (
@@ -81,6 +100,15 @@ const SpeciesCard = ({
                 </Modal.Header>
                 <Modal.Body className="modal-body">
                 <ul>
+                {classification && <li>classification: {classification}</li>}
+                {designation && <li>designation: {designation}</li>}
+                {average_height && <li>average height: {average_height}</li>}
+                {skin_colors && <li>skin colors: {skin_colors}</li>}
+                {hair_colors && <li>hair colors: {hair_colors}</li>}
+                {eye_colors && <li>eye colors: {eye_colors}</li>}
+                {average_lifespan && <li>average lifespan: {average_lifespan}</li>}
+                {dataHomeworld && <li>homeworld: {dataHomeworld}</li>}
+                {language && <li>language: {language}</li>}
                 {dataFilms && (
                   <li>
                     Films:
@@ -93,7 +121,7 @@ const SpeciesCard = ({
                 )}
                 {dataPeople && (
                   <li>
-                    Films:
+                    People:
                     <ul>
                       {dataPeople.map((people) => {
                         return <li key={people.name}>{people.name}</li>;

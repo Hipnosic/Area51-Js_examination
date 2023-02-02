@@ -83,6 +83,7 @@ const SpeciesCard = ({
 
     return (
         <>
+        {!filmsLoading &&(
           <>
             <ButtonToolbar className="card">
               <Button
@@ -138,6 +139,8 @@ const SpeciesCard = ({
               </Modal.Footer>
             </Modal>
           </>
+          )}
+          {filmsLoading && <p className="loading">laddar kort..</p>}
       </>
     );
 

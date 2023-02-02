@@ -64,6 +64,7 @@ const VehicleCard = ({
 
     return (
         <>
+        {!filmsLoading &&(
           <>
             <ButtonToolbar className="card">
               <Button
@@ -120,6 +121,8 @@ const VehicleCard = ({
               </Modal.Footer>
             </Modal>
           </>
+          )}
+          {filmsLoading && <p className="loading">laddar kort..</p>}
       </>
     );
 

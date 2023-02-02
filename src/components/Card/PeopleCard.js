@@ -107,7 +107,7 @@ const PeopleCard = ({
             </Modal>
           </>
           )}
-          {filmsLoading && <p>laddar kort..</p>}
+          {filmsLoading && <p className="loading">laddar kort..</p>}
       </>
     );
 

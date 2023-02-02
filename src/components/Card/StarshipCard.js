@@ -66,6 +66,7 @@ const StarshipCard = ({
 
     return (
         <>
+        {!filmsLoading &&(
           <>
             <ButtonToolbar className="card">
               <Button
@@ -124,6 +125,8 @@ const StarshipCard = ({
               </Modal.Footer>
             </Modal>
           </>
+          )}
+          {filmsLoading && <p className="loading">laddar kort..</p>}
       </>
     );
 

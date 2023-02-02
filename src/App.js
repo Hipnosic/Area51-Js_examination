@@ -6,6 +6,13 @@ import Starships from "./components/Categories/Starships";
 import Vehicles from "./components/Categories/Vehicles";
 import People from "./components/Categories/People";
 
+const loadingStyle = {
+  color: "yellow",
+  fontFamily: "StarWars",
+  fontSize: "2em",
+  textAlign: "center",
+}
+
 
 function App() {
   const [data, setData] = useState([])
@@ -68,7 +75,7 @@ function App() {
       {currentType === "people" && !loading && (
         <People data={data} />
       )}
-      {loading && (<p>Hämtar data..</p>)}
+      {loading && (<p style={loadingStyle}>Hämtar data..</p>)}
     </div>
   );
 }
